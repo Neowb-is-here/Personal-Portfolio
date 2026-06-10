@@ -37,6 +37,7 @@ const projects = [
       "A personal game project focused on shooter mechanics, similar to Chicken Invaders. It is an endless shooting game where you accumulate points as you destroy meteors.",
     tools: ["Unity", "Visual Studio Code", "Photoshop"],
     link: "https://neowb.itch.io/cattu-shooter",
+    image: "/cattu-shooter-image.jpg",
   },
 ];
 
