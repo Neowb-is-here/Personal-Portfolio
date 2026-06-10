@@ -56,6 +56,21 @@ const skills = [
   "Git",
 ];
 
+const skillLogos = {
+  "C#": "/csharp-logo.png",
+  Java: "/java-logo.png",
+  Python: "/python-logo.png",
+  "Unreal Engine": "/unreal-engine-logo.png",
+  "Unity Engine": "/unity-engine-logo.png",
+  Aseprite: "/aseprite-logo.png",
+  "Adobe Photoshop": "/adobe-photoshop-logo.png",
+  "Adobe Illustrator": "/adobe-illustrator-logo.png",
+  "Adobe Premiere Pro": "/adobe-premiere-pro-logo.png",
+  Audacity: "/audacity-logo.png",
+  "Spine 2D": "/spine-2d-logo.png",
+  Git: "/git-logo.png",
+};
+
 const artworks = [
   {
     title: "Digital Art and Compositions",
@@ -189,14 +204,14 @@ function App() {
 
       <section className="hero">
         <div className="hero-content">
-          <p className="eyebrow">Game Programmer & Digital Artist</p>
+          <p className="eyebrow">Game Developer & Digital Artist</p>
 
           <h1>Stephen John Gavaran</h1>
 
           <ScrambleText />
 
           <p className="hero-description">
-            Game Developer | Artist | VFX Artist
+            Game Developer | Digital Artist
           </p>
 
           <div className="hero-buttons">
@@ -211,6 +226,15 @@ function App() {
 
         <div className="hero-card">
           <div className="preview-window">
+            <video
+              className="featured-video"
+              src="/7-Deadly-Sins.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden="true"
+            />
             <div className="window-bar">
               <span></span>
               <span></span>
@@ -219,8 +243,8 @@ function App() {
 
             <div className="preview-content">
               <p>Featured Project</p>
-              <h2>SWINGFALL</h2>
-              <p>Web-Swinging • Enemy AI • Unity</p>
+              <h2>7 DEADLY SINS</h2>
+              <p>Unity • Adobe Premiere Pro</p>
             </div>
           </div>
         </div>
@@ -231,7 +255,7 @@ function App() {
           <p className="eyebrow">Featured Work</p>
           <h2>Game Development Projects</h2>
           <p>
-            A selection of my game projects, systems, mechanics, and technical
+            A portfolio of my game projects, game art, and technical
             work.
           </p>
         </div>
@@ -285,28 +309,32 @@ function App() {
           <p className="eyebrow">What I Do</p>
           <h2>Skills</h2>
           <p>
-            I combine programming and visual design to create complete game
+            I combine programming and visual design to create game
             experiences.
           </p>
         </div>
 
         <div className="skill-grid">
-          {skills.map((skill) => (
-            <div
-              className={`skill-card${skill === "C#" ? " has-logo" : ""}`}
-              key={skill}
-            >
-              <span className="skill-name">{skill}</span>
-              {skill === "C#" && (
-                <img
-                  src="/c%23-logo.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="skill-logo"
-                />
-              )}
-            </div>
-          ))}
+          {skills.map((skill) => {
+            const logo = skillLogos[skill];
+
+            return (
+              <div
+                className={`skill-card${logo ? " has-logo" : ""}`}
+                key={skill}
+              >
+                <span className="skill-name">{skill}</span>
+                {logo && (
+                  <img
+                    src={logo}
+                    alt=""
+                    aria-hidden="true"
+                    className="skill-logo"
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -349,15 +377,15 @@ function App() {
       <section className="about-section" id="about">
         <div>
           <p className="eyebrow">About Me</p>
-          <h2>Game Programmer. Digital Artist. System Builder.</h2>
+          <h2>Game Developer. Digital Artist.</h2>
         </div>
 
         <p>
-          Hi, I’m Stephen John Gavaran, a game programmer and digital artist. I
-          specialize in Unity game development, gameplay systems, enemy AI, UI
-          implementation, and creative visual design. My work combines technical
-          systems with visual creativity to build engaging interactive
-          experiences.
+          Hi, I’m Stephen John Gavaran, a game developer and digital artist
+          who enjoys turning ideas into playable, visually memorable
+          experiences. I specialize in Unity game development and creative
+          visual design, blending responsive systems, thoughtful mechanics, and
+          stylized visuals to create interactive projects with personality.
         </p>
       </section>
 

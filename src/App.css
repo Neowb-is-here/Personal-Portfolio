@@ -402,14 +402,12 @@
 .preview-window::before {
   content: "";
   position: absolute;
-  inset: 72px 55px 72px 55px;
-  border-radius: 30px;
+  inset: 56px 0 0;
+  border-radius: 0;
   background:
-    radial-gradient(circle at top left, rgba(255, 45, 149, 0.45), transparent 40%),
-    radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.55), transparent 42%),
-    linear-gradient(180deg, rgba(139, 92, 246, 0.65), rgba(79, 30, 131, 0.85));
-  filter: blur(8px);
-  box-shadow: 0 0 60px rgba(168, 85, 247, 0.26);
+    linear-gradient(180deg, rgba(9, 6, 17, 0.06), rgba(9, 6, 17, 0.78)),
+    linear-gradient(135deg, rgba(255, 45, 149, 0.14), rgba(139, 92, 246, 0.2));
+  z-index: 1;
 }
 
 .preview-window::after {
@@ -421,6 +419,16 @@
   border-radius: 50%;
   border: 2px solid rgba(110, 231, 255, 0.7);
   opacity: 0.8;
+  z-index: 1;
+}
+
+.featured-video {
+  position: absolute;
+  inset: 56px 0 0;
+  width: 100%;
+  height: calc(100% - 56px);
+  object-fit: cover;
+  z-index: 0;
 }
 
 .window-bar {
@@ -701,7 +709,7 @@
   z-index: 1;
   width: 96px;
   height: 96px;
-  right: -24px;
+  right: -19px;
   top: 50%;
   object-fit: contain;
   opacity: 0.92;
