@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import neowbLogo from "./assets/neowb-logo-transparent.png";
 
@@ -89,6 +89,109 @@ const artworks = [
   },
 ];
 
+function LoadingScreen({ onDone }) {
+  const [text, setText] = useState("");
+  const [bursts, setBursts] = useState([]);
+
+  useEffect(() => {
+    const sequence = ".../";
+    const burstCharacters = "!<>-_\\/[]{}=+*^?#";
+    const loops = Math.floor(Math.random() * 3) + 3;
+    let loopCount = 0;
+    let charIndex = 0;
+    let timeoutId = null;
+    const burstTimeouts = [];
+
+    const triggerBurst = () => {
+      const id = `${Date.now()}-${Math.random()}`;
+      const particles = Array.from({ length: 18 }, (_, index) => {
+        const angle = (Math.PI * 2 * index) / 18 + (Math.random() - 0.5) * 0.45;
+        const distance = 42 + Math.random() * 54;
+
+        return {
+          id: `${id}-${index}`,
+          character:
+            burstCharacters[Math.floor(Math.random() * burstCharacters.length)],
+          style: {
+            "--burst-x": `${Math.cos(angle) * distance}px`,
+            "--burst-y": `${Math.sin(angle) * distance}px`,
+            "--burst-rotate": `${Math.random() * 220 - 110}deg`,
+            "--burst-size": `${0.78 + Math.random() * 0.45}em`,
+            "--burst-delay": `${Math.random() * 80}ms`,
+          },
+        };
+      });
+
+      setBursts((currentBursts) =>
+        [...currentBursts, { id, particles }].slice(-3)
+      );
+
+      const burstTimeout = setTimeout(() => {
+        setBursts((currentBursts) =>
+          currentBursts.filter((burst) => burst.id !== id)
+        );
+      }, 850);
+
+      burstTimeouts.push(burstTimeout);
+    };
+
+    const typeNext = () => {
+      if (charIndex <= sequence.length) {
+        const nextText = sequence.slice(0, charIndex);
+
+        setText(nextText);
+
+        if (nextText === sequence) {
+          triggerBurst();
+        }
+
+        charIndex += 1;
+        timeoutId = setTimeout(typeNext, 132 + Math.random() * 56);
+        return;
+      }
+
+      loopCount += 1;
+
+      if (loopCount >= loops) {
+        timeoutId = setTimeout(onDone, 450);
+        return;
+      }
+
+      charIndex = 0;
+      setText("");
+      timeoutId = setTimeout(typeNext, 200 + Math.random() * 300);
+    };
+
+    timeoutId = setTimeout(typeNext, 275);
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      burstTimeouts.forEach((burstTimeout) => clearTimeout(burstTimeout));
+    };
+  }, [onDone]);
+
+  return (
+    <div className="loading-screen" role="status" aria-label="Loading portfolio">
+      <div className="loading-mark">
+        <div className="loading-particles" aria-hidden="true">
+          {bursts.flatMap((burst) =>
+            burst.particles.map((particle) => (
+              <span
+                className="loading-particle"
+                key={particle.id}
+                style={particle.style}
+              >
+                {particle.character}
+              </span>
+            ))
+          )}
+        </div>
+        <span className="loading-text">{text}</span>
+      </div>
+    </div>
+  );
+}
+
 function ScrambleText() {
   const phrases = [
     "games.",
@@ -175,32 +278,37 @@ function ScrambleText() {
 }
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const finishLoading = useCallback(() => setIsLoading(false), []);
+
   return (
-    <main className="site">
-      <div className="animated-background">
-        <span className="orb orb-1"></span>
-        <span className="orb orb-2"></span>
-        <span className="orb orb-3"></span>
-      </div>
-      <nav className="navbar">
-        <div className="logo">
-          <img src={neowbLogo} alt="Stephen John Gavaran Logo" />
+    <>
+      {isLoading && <LoadingScreen onDone={finishLoading} />}
+      <main className="site">
+        <div className="animated-background">
+          <span className="orb orb-1"></span>
+          <span className="orb orb-2"></span>
+          <span className="orb orb-3"></span>
         </div>
-        <div className="nav-links">
-          <a href="#skills" aria-label="Skills" title="Skills">
-            <i className="fi fi-sr-laptop-code nav-icon" aria-hidden="true"></i>
-            <span className="sr-only">Skills</span>
-          </a>
-          <a href="#portfolio" aria-label="Portfolio" title="Portfolio">
-            <i className="fi fi-sr-palette nav-icon" aria-hidden="true"></i>
-            <span className="sr-only">Portfolio</span>
-          </a>
-          <a href="#about" aria-label="About" title="About">
-            <i className="fi fi-sr-user nav-icon" aria-hidden="true"></i>
-            <span className="sr-only">About</span>
-          </a>
-        </div>
-      </nav>
+        <nav className="navbar">
+          <div className="logo">
+            <img src={neowbLogo} alt="Stephen John Gavaran Logo" />
+          </div>
+          <div className="nav-links">
+            <a href="#skills" aria-label="Skills" title="Skills">
+              <i className="fi fi-sr-laptop-code nav-icon" aria-hidden="true"></i>
+              <span className="sr-only">Skills</span>
+            </a>
+            <a href="#portfolio" aria-label="Portfolio" title="Portfolio">
+              <i className="fi fi-sr-palette nav-icon" aria-hidden="true"></i>
+              <span className="sr-only">Portfolio</span>
+            </a>
+            <a href="#about" aria-label="About" title="About">
+              <i className="fi fi-sr-user nav-icon" aria-hidden="true"></i>
+              <span className="sr-only">About</span>
+            </a>
+          </div>
+        </nav>
 
       <section className="hero">
         <div className="hero-content">
@@ -427,7 +535,8 @@ function App() {
           </a>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
 
