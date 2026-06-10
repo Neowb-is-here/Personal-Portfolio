@@ -292,8 +292,19 @@ function App() {
 
         <div className="skill-grid">
           {skills.map((skill) => (
-            <div className="skill-card" key={skill}>
-              {skill}
+            <div
+              className={`skill-card${skill === "C#" ? " has-logo" : ""}`}
+              key={skill}
+            >
+              <span className="skill-name">{skill}</span>
+              {skill === "C#" && (
+                <img
+                  src="/c%23-logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="skill-logo"
+                />
+              )}
             </div>
           ))}
         </div>

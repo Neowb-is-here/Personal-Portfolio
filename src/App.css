@@ -678,6 +678,10 @@
   transition: 0.25s ease;
 }
 
+.skill-card.has-logo {
+  padding-right: 78px;
+}
+
 .skill-card::before {
   content: "";
   position: absolute;
@@ -685,6 +689,25 @@
   width: 100px;
   height: 100px;
   background: radial-gradient(circle, rgba(255, 45, 149, 0.18), transparent 68%);
+}
+
+.skill-name {
+  position: relative;
+  z-index: 2;
+}
+
+.skill-logo {
+  position: absolute;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  right: -24px;
+  top: 50%;
+  object-fit: contain;
+  opacity: 0.92;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.35));
+  transform: translateY(-50%) rotate(-12deg);
+  transform-origin: center;
 }
 
 .skill-card:hover {
