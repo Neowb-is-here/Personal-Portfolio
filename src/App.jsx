@@ -28,6 +28,7 @@ const projects = [
       "A capstone game project set in a Greek timeline where you complete all of the levels and face the boss to save the city.",
     tools: ["Unity", "Visual Studio Code", "Aseprite", "Adobe Photoshop"],
     link: "https://neowb.itch.io/take-me-to-elysium",
+    image: "/take-me-to-elysium-image.png",
   },
   {
     title: "Cattu Shooter",
