@@ -19,6 +19,7 @@ const projects = [
       "A game project developed during OJT, featuring different maps that you can unlock by collecting specific rare fishes.",
     tools: ["Unity", "Visual Studio", "Blender", "Adobe Photoshop"],
     link: "https://neowb.itch.io/anglers-journey",
+    image: "/anglers-journey-image.png",
   },
   {
     title: "Take Me To Elysium",
