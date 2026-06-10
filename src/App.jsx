@@ -10,6 +10,7 @@ const projects = [
       "A 2D action platformer focused on physics-based web-swinging. The development is still ongoing and the completion is still unknown.",
     tools: ["Unity", "Visual Studio", "Spine", "Adobe Photoshop"],
     link: "https://neowb.itch.io/swingfall",
+    image: "/swingfall-image.jpg",
   },
   {
     title: "Angler’s Journey",
@@ -247,7 +248,14 @@ function App() {
                   project.link ? `Open ${project.title} on itch.io` : undefined
                 }
               >
-                <div className="project-image">
+                <div
+                  className={`project-image${project.image ? " has-image" : ""}`}
+                  style={
+                    project.image
+                      ? { "--project-image": `url(${project.image})` }
+                      : undefined
+                  }
+                >
                   <span>{project.title}</span>
                 </div>
 

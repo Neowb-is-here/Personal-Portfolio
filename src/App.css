@@ -580,6 +580,25 @@
   transform: rotate(30deg);
 }
 
+.project-image.has-image {
+  background: var(--project-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.project-image.has-image::before {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(9, 6, 17, 0.05), rgba(9, 6, 17, 0.78));
+}
+
+.project-image.has-image::after {
+  display: none;
+}
+
 .project-image span {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2.3rem;
