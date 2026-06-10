@@ -77,7 +77,7 @@ const artworks = [
 function ScrambleText() {
   const phrases = [
     "games.",
-    "systems.",
+    "art.",
     "visual experiences.",
     "creative projects.",
   ];
