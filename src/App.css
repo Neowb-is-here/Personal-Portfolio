@@ -316,13 +316,6 @@
   line-height: 1;
 }
 
-.nav-links a:hover {
-  transform: translateY(-2px);
-  background: rgba(38, 23, 61, 0.9);
-  border-color: rgba(192, 132, 252, 0.55);
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -481,10 +474,6 @@
   color: white;
   border: 1px solid rgba(192, 132, 252, 0.32);
   background: rgba(255, 255, 255, 0.05);
-}
-
-.btn:hover {
-  transform: translateY(-3px) scale(1.02);
 }
 
 .hero-card {
@@ -646,14 +635,6 @@
   color: inherit;
   cursor: pointer;
   text-decoration: none;
-}
-
-.project-card:hover {
-  transform: translateY(-10px) rotate(-0.5deg);
-  border-color: rgba(255, 45, 149, 0.45);
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.35),
-    0 0 40px rgba(168, 85, 247, 0.18);
 }
 
 .project-card.linked-card:focus-visible {
@@ -826,12 +807,6 @@
   transform-origin: center;
 }
 
-.skill-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 45, 149, 0.35);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-}
-
 .art-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -927,16 +902,6 @@
   transition: 0.25s ease;
 }
 
-.portfolio-card-link:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 18px 42px rgba(168, 85, 247, 0.3);
-}
-
-.art-card:hover {
-  transform: translateY(-6px) scale(1.015);
-  border-color: rgba(110, 231, 255, 0.4);
-}
-
 .about-section,
 .contact-section {
   width: min(1180px, calc(100% - 40px));
@@ -977,11 +942,6 @@
   background: linear-gradient(135deg, rgba(255, 45, 149, 0.14), rgba(124, 58, 237, 0.16));
   border: 1px solid rgba(192, 132, 252, 0.24);
   transition: 0.25s ease;
-}
-
-.contact-links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.18);
 }
 
 .icon-links {
