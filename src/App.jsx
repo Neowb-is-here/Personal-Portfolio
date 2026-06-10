@@ -318,10 +318,6 @@ function App() {
 
           <ScrambleText />
 
-          <p className="hero-description">
-            Game Developer | Digital Artist
-          </p>
-
           <div className="hero-buttons">
             <a href="#projects" className="btn primary">
               View My Work
