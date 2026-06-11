@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import neowbLogo from "./assets/neowb-logo-transparent.png";
 
@@ -532,6 +533,7 @@ function App() {
         </div>
       </section>
       </main>
+      <Analytics />
     </>
   );
 }
