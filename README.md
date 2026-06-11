@@ -1,16 +1,33 @@
-# React + Vite
+# Stephen John Gavaran Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website for sharing what I do as a game developer and digital artist. It is the site I send to visitors, clients, collaborators, and developers who want a quick look at my projects, creative work, and skills.
 
-Currently, two official plugins are available:
+Live site: https://neowb-portfolio.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What You Can Find
 
-## React Compiler
+- Game development projects with links to playable work
+- Digital art, design, and game creation portfolio sections
+- Skills across programming, game engines, art tools, and production software
+- Contact links for project inquiries, collaboration, and professional connections
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Featured Areas
 
-## Expanding the ESLint configuration
+**Game Development**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Projects include Swingfall, Angler's Journey, Take Me To Elysium, and Cattu Shooter.
+
+**Portfolio**
+
+Creative work is grouped into digital art and compositions, digital designs, and game creations.
+
+**Skills**
+
+The site highlights tools and technologies including C#, Java, Python, Unity, Unreal Engine, Aseprite, Adobe Photoshop, Adobe Illustrator, Adobe Premiere Pro, Audacity, Spine 2D, and Git.
+
+## Contact
+
+- Email: stephenjohngavaran22@gmail.com
+- GitHub: https://github.com/Neowb-is-here
+- LinkedIn: https://www.linkedin.com/in/stephen-john-gavaran-9342681b0/
+
